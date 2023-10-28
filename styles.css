@@ -1,12 +1,13 @@
 /* Reset some default styles */
-body, h1, h2, h3, p, ul {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: "Arial", sans-serif;
-    background: #f0f0f0;
+    background: #f5f5f5;
     color: #333;
     text-align: center;
     transition: background-color 0.5s, color 0.5s;
@@ -18,29 +19,33 @@ header {
     color: #fff;
     text-align: center;
     padding: 20px;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 header h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
 }
 
 /* Navigation Styles */
 nav {
     background: #333;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    margin-top: -20px;
+    border-radius: 0 0 10px 10px;
 }
 
 nav ul {
     list-style: none;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 nav li {
-    display: inline;
     margin-right: 20px;
 }
 
@@ -50,31 +55,46 @@ nav a {
     font-weight: 600;
     transition: color 0.3s;
     text-transform: uppercase;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    position: relative;
+    letter-spacing: 1px;
 }
 
-nav a:hover {
-    color: #ff9900;
-    transform: scale(1.1);
+nav a::before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: #ff9900;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+nav a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 /* Main Content Styles */
 main {
-    max-width: 800px;
+    max-width: 900px;
     margin: 20px auto;
     padding: 20px;
     background: #fff;
     border-radius: 10px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Game Card Styles */
 .game-card {
     border: 1px solid #ddd;
-    margin: 10px;
-    padding: 10px;
+    margin: 20px 0;
+    padding: 20px;
     background: #fff;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     position: relative;
@@ -83,26 +103,57 @@ main {
 }
 
 .game-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
 }
 
 .game-card img {
     max-width: 100%;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: transform 0.3s ease;
 }
 
 .game-card h3 {
-    font-size: 1.4rem;
-    margin-top: 10px;
+    font-size: 1.6rem;
+    margin-top: 15px;
     color: #333;
     font-weight: 700;
 }
 
 .game-card p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: #666;
-    margin-top: 10px;
+    margin-top: 15px;
+}
+
+.game-card a {
+    text-decoration: none;
+    display: inline-block;
+    background: #ff9900;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+.game-card a:hover {
+    background: #333;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: #222;
+    color: #fff;
+}
+
+.dark-mode-switch input[type="checkbox"]:checked ~ .toggle-label::before {
+    transform: translateX(18px);
+    background: #fff;
+}
+
+.dark-mode-switch input[type="checkbox"]:checked ~ .toggle-label {
+    background: #333;
 }
 
 /* Footer Styles */
@@ -110,8 +161,8 @@ footer {
     background: linear-gradient(to bottom, #333, #222);
     color: #fff;
     text-align: center;
-    padding: 10px 0;
-    box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.2);
+    padding: 15px 0;
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Dark Mode Switch Styles */
@@ -147,18 +198,13 @@ footer {
     transition: transform 0.3s;
 }
 
-.dark-mode-switch input[type="checkbox"]:checked + .toggle-label::before {
+.dark-mode-switch input[type="checkbox"]:checked ~ .toggle-label::before {
     transform: translateX(18px);
     background: #fff;
 }
 
-.dark-mode-switch input[type="checkbox"]:checked + .toggle-label {
+.dark-mode-switch input[type="checkbox"]:checked ~ .toggle-label {
     background: #333;
-}
-
-.dark-mode body {
-    background-color: #333;
-    color: #fff;
 }
 
 /* Additional Styles for Hover and Focus Effects */
