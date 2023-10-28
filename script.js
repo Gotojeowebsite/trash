@@ -1,10 +1,23 @@
-const darkModeToggle = document.getElementById('dark-mode-toggle');
-const body = document.body;
+// Dark Mode Switch JavaScript
 
-darkModeToggle.addEventListener('change', () => {
+// Check for the saved dark mode preference
+const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+const currentTheme = localStorage.getItem("theme");
+const darkModeToggle = document.getElementById("dark-mode-toggle");
+
+// If the user has previously chosen dark mode or the system prefers it, enable dark mode
+if (currentTheme === "dark" || (currentTheme === null && prefersDarkScheme.matches)) {
+    document.body.classList.add("dark-mode");
+    darkModeToggle.checked = true;
+}
+
+// Toggle dark mode on checkbox change
+darkModeToggle.addEventListener("change", () => {
     if (darkModeToggle.checked) {
-        body.classList.add('dark-mode');
+        document.body.classList.add("dark-mode");
+        localStorage.setItem("theme", "dark");
     } else {
-        body.classList.remove('dark-mode');
+        document.body.classList.remove("dark-mode");
+        localStorage.setItem("theme", "light");
     }
 });
