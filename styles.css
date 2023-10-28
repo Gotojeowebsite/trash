@@ -1,7 +1,7 @@
 body {
     transition: background-color 0.5s, color 0.5s;
-    background-color: #fff;
-    color: #333;
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
     text-align: center;
     font-family: Arial, sans-serif;
 }
@@ -16,7 +16,7 @@ body {
     display: block;
     width: 50px;
     height: 26px;
-    background: #ccc;
+    background: var(--toggle-bg-light);
     border-radius: 20px;
     position: relative;
     cursor: pointer;
@@ -28,7 +28,7 @@ body {
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    background: #fff;
+    background: var(--toggle-handle-bg-light);
     position: absolute;
     left: 0;
     transition: transform 0.3s;
@@ -40,14 +40,27 @@ input[type="checkbox"] {
 
 input[type="checkbox"]:checked + .toggle-label::before {
     transform: translateX(24px);
-    background: #fff;
+    background: var(--toggle-handle-bg-dark);
 }
 
 input[type="checkbox"]:checked + .toggle-label {
-    background: #333;
+    background: var(--toggle-bg-dark);
 }
 
 body.dark-mode {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+
+/* Define CSS variables for light and dark modes */
+:root {
+    --bg-color-light: #fff;
+    --text-color-light: #333;
+    --toggle-bg-light: #ccc;
+    --toggle-handle-bg-light: #fff;
+    
+    --bg-color-dark: #333;
+    --text-color-dark: #fff;
+    --toggle-bg-dark: #ccc;
+    --toggle-handle-bg-dark: #333;
 }
