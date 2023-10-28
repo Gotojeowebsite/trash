@@ -20,6 +20,7 @@ header {
     text-align: center;
     padding: 20px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    position: relative; /* Add this line */
 }
 
 header h1 {
@@ -27,6 +28,48 @@ header h1 {
     text-transform: uppercase;
     letter-spacing: 3px;
     margin-bottom: 20px;
+}
+
+/* Dark Mode Styles */
+.dark-mode-switch {
+    position: absolute;
+    top: 10px; /* Adjust the top position as needed */
+    right: 10px; /* Adjust the right position as needed */
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+}
+
+.dark-mode-switch .toggle-label {
+    display: block;
+    width: 40px;
+    height: 20px;
+    background: #333;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dark-mode-switch .toggle-label::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    left: 2px;
+    transition: transform 0.3s;
+}
+
+dark-mode-switch input[type="checkbox"]:checked ~ .toggle-label::before {
+    transform: translateX(18px);
+    background: #fff;
+}
+
+dark-mode-switch input[type="checkbox"]:checked ~ .toggle-label {
+    background: #333;
 }
 
 /* Navigation Styles */
@@ -141,21 +184,6 @@ main {
     background: #333;
 }
 
-/* Dark Mode Styles */
-body.dark-mode {
-    background: #222;
-    color: #fff;
-}
-
-.dark-mode-switch input[type="checkbox"]:checked ~ .toggle-label::before {
-    transform: translateX(18px);
-    background: #fff;
-}
-
-.dark-mode-switch input[type="checkbox"]:checked ~ .toggle-label {
-    background: #333;
-}
-
 /* Footer Styles */
 footer {
     background: linear-gradient(to bottom, #333, #222);
@@ -163,48 +191,6 @@ footer {
     text-align: center;
     padding: 15px 0;
     box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Dark Mode Switch Styles */
-.dark-mode-switch {
-    display: inline-block;
-    margin-left: 20px;
-    position: relative;
-}
-
-.dark-mode-switch input[type="checkbox"] {
-    visibility: hidden;
-}
-
-.dark-mode-switch .toggle-label {
-    display: block;
-    width: 40px;
-    height: 20px;
-    background: #333;
-    border-radius: 20px;
-    position: relative;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.dark-mode-switch .toggle-label::before {
-    content: '';
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: #fff;
-    position: absolute;
-    left: 2px;
-    transition: transform 0.3s;
-}
-
-.dark-mode-switch input[type="checkbox"]:checked ~ .toggle-label::before {
-    transform: translateX(18px);
-    background: #fff;
-}
-
-.dark-mode-switch input[type="checkbox"]:checked ~ .toggle-label {
-    background: #333;
 }
 
 /* Additional Styles for Hover and Focus Effects */
