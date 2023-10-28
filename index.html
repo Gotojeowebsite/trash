@@ -13,19 +13,20 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #36454F;
+            background: #f0f0f0;
         }
 
         header {
-            background-color: #333;
+            background: linear-gradient(to bottom, #333, #222);
             color: #fff;
             text-align: center;
             padding: 20px;
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
         }
 
         nav {
-            background-color: #444;
-            padding: 10px 0;
+            background: #333;
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
         }
 
         nav ul {
@@ -40,14 +41,22 @@
 
         nav a {
             text-decoration: none;
-            color: #ffffff;
+            color: #fff;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff9900;
         }
 
         main {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #00000000;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
         }
 
         .games-section {
@@ -55,21 +64,25 @@
         }
 
         .game-card {
-            border: 1px solid #ffffff6b;
+            border: 1px solid #ddd;
             margin: 10px;
             padding: 10px;
-            background-color: #6700ab5b;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
         }
 
         .game-card img {
             max-width: 100%;
+            border-radius: 5px;
         }
 
         footer {
-            background-color: #333;
-            color: #ffffff;
+            background: linear-gradient(to bottom, #333, #222);
+            color: #fff;
             text-align: center;
             padding: 10px 0;
+            box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -88,19 +101,17 @@
     <main>
         <section class="games-section">
             <h2>Popular Games</h2>
-
             <div class="game-card">
                 <img src="Slope/slope.jpg" alt="Game 1">
-                <h3>Slope</h3>
-                <p>A fun and competetive Game.</p>
+                <h3>Game 1</h3>
+                <p>Description of Game 1.</p>
                 <a href="Slope/index.html">Play Game</a>
             </div>
-            
             <div class="game-card">
                 <img src="game2.jpg" alt="Game 2">
                 <h3>Game 2</h3>
                 <p>Description of Game 2.</p>
-                <a href="#">Play Game</a>
+                <a href="game2_link.html">Play Game</a>
             </div>
         </section>
     </main>
